@@ -1,6 +1,6 @@
 # Animated Toggle Listener
 
-A simple android way to create an animated toggle button. The trick is to use two overlapping buttons (the "on" and the "off") and to add a common click (or long click) listener that will animate the transition between the two buttons and trigger the on and the off events.
+A simple android tool to create an animated toggle button. The trick is to use two overlapping buttons (the "on" and the "off") and to add a common click (or long click) listener that will animate the transition between the two buttons and trigger the on and the off events.
 
 The AnimatedToggleListener is this helper class. It works with any view (FloatingActionButton, Button...). The animation can be customized very easily.
 
