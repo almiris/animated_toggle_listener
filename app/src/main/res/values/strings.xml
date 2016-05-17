@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Animated Toggle Listener</string>
+    <string name="toggle_message_on">Silent mode on</string>
+    <string name="toggle_message_off">Silent mode off</string>
+</resources>
