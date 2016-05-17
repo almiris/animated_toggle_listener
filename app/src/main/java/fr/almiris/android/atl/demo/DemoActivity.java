@@ -59,13 +59,13 @@ public class DemoActivity extends AppCompatActivity {
 
             @Override
             protected ViewPropertyAnimator enter(ViewPropertyAnimator animator) {
-                return animator.rotationXBy(360.0f).alpha(1.0f);
+                return animator.rotationXBy(360.0f);
             }
 
             @Override
             protected ViewPropertyAnimator exit(ViewPropertyAnimator animator) {
-                return animator.rotationXBy(360.0f).alpha(0.0f);
+                return animator.rotationXBy(360.0f);
             }
-        }.attachTo(buttonOn2, buttonOff2).setToOff();
+        }.attachTo(buttonOn2, buttonOff2).setToOff().setDuration(1000);
     }
 }

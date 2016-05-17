@@ -40,18 +40,20 @@ public abstract class AnimatedToggleListener implements View.OnClickListener, Vi
         return this;
     }
 
-    public void setToOn() {
+    public AnimatedToggleListener setToOn() {
         this.on.setVisibility(View.VISIBLE);
         this.on.setEnabled(true);
         this.off.setVisibility(View.INVISIBLE);
         this.off.setEnabled(false);
+        return this;
     }
 
-    public void setToOff() {
+    public AnimatedToggleListener setToOff() {
         this.on.setVisibility(View.INVISIBLE);
         this.on.setEnabled(false);
         this.off.setVisibility(View.VISIBLE);
         this.off.setEnabled(true);
+        return this;
     }
 
     @Override
@@ -79,16 +81,17 @@ public abstract class AnimatedToggleListener implements View.OnClickListener, Vi
         return false;
     }
 
-    public void setDuration(long duration) {
+    public AnimatedToggleListener setDuration(long duration) {
         this.duration = duration;
+        return this;
     }
 
     public void animateOnToOff() {
         off.setEnabled(false);
         off.setAlpha(0.0f);
         off.setVisibility(View.VISIBLE);
-        exit(on.animate()).setDuration(this.duration);
-        enter(off.animate()).setDuration(this.duration).setListener(new Animator.AnimatorListener() {
+        exit(on.animate()).alpha(0.0f).setDuration(this.duration);
+        enter(off.animate()).alpha(1.0f).setDuration(this.duration).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
             }
@@ -115,8 +118,8 @@ public abstract class AnimatedToggleListener implements View.OnClickListener, Vi
         on.setEnabled(false);
         on.setAlpha(0.0f);
         on.setVisibility(View.VISIBLE);
-        exit(off.animate()).setDuration(this.duration);
-        enter(on.animate()).setDuration(this.duration).setListener(new Animator.AnimatorListener() {
+        exit(off.animate()).alpha(0.0f).setDuration(this.duration);
+        enter(on.animate()).alpha(1.0f).setDuration(this.duration).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
             }
@@ -140,10 +143,10 @@ public abstract class AnimatedToggleListener implements View.OnClickListener, Vi
     }
 
     protected ViewPropertyAnimator enter(ViewPropertyAnimator animator) {
-        return animator.alpha(1.0f).rotationBy(360.0f);
+        return animator.rotationBy(360.0f);
     }
 
     protected ViewPropertyAnimator exit(ViewPropertyAnimator animator) {
-        return animator.alpha(0.0f).rotationBy(360.0f);
+        return animator.rotationBy(360.0f);
     }
 }
